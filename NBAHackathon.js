@@ -134,7 +134,7 @@ function quarterEngine(quarter) {
       counter = checkSubs - 1;
     }
 
-    else if (plays[counter].Event_Msg_Type === 8 || plays[counter].Event_Msg_Type === 11) {
+    else if (plays[counter].Event_Msg_Type === 8) {
       substitution(plays[counter]);
     }
 
@@ -162,11 +162,11 @@ while (plays.length !== 0){
 }
 
 // fs.writeFile('./final.json', JSON.stringify(finalArr), 'utf8');
-// const jsonData = fs.readFileSync(path.join(__dirname, './final.json'), { encoding : 'utf8'});
-// const options = {
-//    delimiter   : ",",
-//    wrap        : false
-// }
-//
-// const x = csvjson.toCSV(jsonData, options);
-// fs.writeFile('./final.csv', x, 'utf8');
+const jsonData = fs.readFileSync(path.join(__dirname, './final.json'), { encoding : 'utf8'});
+const options = {
+   delimiter   : ",",
+   wrap        : false
+}
+
+const x = csvjson.toCSV(jsonData, options);
+fs.writeFile('./final.csv', x, 'utf8');
